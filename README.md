@@ -1,4 +1,3 @@
-#Hermes
 O Hermes é um módulo integrado ao software Apollo, desenvolvido com o objetivo de melhorar a experiência dos pacientes ao agendar consultas médicas. Ele fornece aos pacientes informações detalhadas sobre suas consultas, incluindo datas e a possibilidade de confirmação. Este projeto visa aprimorar a eficiência e a comunicação entre os pacientes e os provedores de serviços de saúde.
 
 Principais Características
