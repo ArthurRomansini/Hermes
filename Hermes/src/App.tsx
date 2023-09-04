@@ -1,7 +1,7 @@
 import './App.css'
-import AppClinicaRoutes from './routes/appClinica.routes'
-import AppPacienteRoutes from './routes/appPaciente.routes'
-import AuthRoutes from './routes/auth.routes'
+import AppClinicaRoutes from './Routes/appClinica.routes'
+import AppPacienteRoutes from './Routes/appPaciente.routes'
+import AuthRoutes from './Routes/auth.routes'
 
 function App() {
 
