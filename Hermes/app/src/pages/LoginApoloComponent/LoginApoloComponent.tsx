@@ -1,16 +1,21 @@
-import { useState } from "react";
-import { TERipple } from "tw-elements-react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import setRefreshToken from "../../Services/auth";
+
+type Inputs = {
+  conta: string;
+  usuario: string;
+  senha: string;
+};
 
 function LoginApoloComponent() {
-  const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    setUser(formData.get("user") as string);
-    setPassword(formData.get("password") as string);
-    console.log(user, password);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    setRefreshToken(data);
   };
   return (
     <main className="w-[100vw] h-[100vh] bg-neutral-200 dark:bg-neutral-700 overflow-hidden">
@@ -35,8 +40,8 @@ function LoginApoloComponent() {
                         </h4>
                       </div>
 
-                      <form onSubmit={handleSubmit}>
-                      <div className="flex flex-col space-y-2">
+                      <form onSubmit={handleSubmit(onSubmit as any)}>
+                        <div className="flex flex-col space-y-2 mb-2">
                           <label
                             htmlFor="conta"
                             className="text-gray-700 select-none font-medium text-left"
@@ -46,14 +51,19 @@ function LoginApoloComponent() {
                           <input
                             id="conta"
                             type="text"
-                            name="conta"
                             placeholder="Sua conta"
+                            {...register("conta", { required: true })}
                             className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
                           />
+                          {errors.conta && (
+                            <span className="text-red-500 mb-0">
+                              A conta e obrigatória
+                            </span>
+                          )}
                         </div>
-                        
+
                         {/* <!--Username input--> */}
-                        <div className="flex flex-col space-y-2 mt-2">
+                        <div className="flex flex-col space-y-2 mb-2">
                           <label
                             htmlFor="usuario"
                             className="text-gray-700 select-none font-medium text-left"
@@ -63,14 +73,19 @@ function LoginApoloComponent() {
                           <input
                             id="usuario"
                             type="text"
-                            name="usuario"
                             placeholder="Seu usuario"
+                            {...register("usuario", { required: true })}
                             className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
                           />
+                          {errors.usuario && (
+                            <span className="text-red-500 mb-0">
+                              O usuario e obrigatório
+                            </span>
+                          )}
                         </div>
 
                         {/* <!--Password input--> */}
-                        <div className="flex flex-col space-y-2 mt-2 mb-6">
+                        <div className="flex flex-col space-y-2 mb-6">
                           <label
                             htmlFor="senha"
                             className="text-gray-700 select-none font-medium text-left"
@@ -80,26 +95,30 @@ function LoginApoloComponent() {
                           <input
                             id="senha"
                             type="password"
-                            name="senha"
                             placeholder="********"
+                            {...register("senha", { required: true })}
                             className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
                           />
+                          {errors.senha && (
+                            <span className="text-red-500">
+                              A senha e obrigatória
+                            </span>
+                          )}
                         </div>
+                        
 
                         {/* <!--Submit button--> */}
                         <div className="mb-12 pb-1 pt-1 text-center">
-                          <TERipple rippleColor="light" className="w-full">
-                            <button
-                              className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
-                              type="button"
-                              style={{
-                                background:
-                                  "linear-gradient(270deg, rgba(37,70,25,1) 0%, rgba(71,124,61,1) 77%, rgba(45,182,72,1) 100%)",
-                              }}
-                            >
-                              Log in
-                            </button>
-                          </TERipple>
+                          <button
+                            className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
+                            type="submit"
+                            style={{
+                              background:
+                                "linear-gradient(270deg, rgba(37,70,25,1) 0%, rgba(71,124,61,1) 77%, rgba(45,182,72,1) 100%)",
+                            }}
+                          >
+                            Log in
+                          </button>
                         </div>
                       </form>
                     </div>
