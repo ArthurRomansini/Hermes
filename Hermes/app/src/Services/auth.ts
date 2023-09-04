@@ -15,10 +15,34 @@ type LoginData = {
   senha: string;
 };
 
-const setRefreshToken = async (loginData: LoginData) => {
-  const req = axios
+const setRefreshToken = async (loginData: LoginData): Promise<boolean> => {
+  // const req = axios
+  //   .post(
+  //     "https://api.ninsaude.com/v1/oauth2/token",
+  //     {
+  //       grant_type: "password",
+  //       account: loginData.conta,
+  //       username: loginData.usuario,
+  //       password: loginData.senha,
+  //       accountUnit: 0,
+  //     },
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/x-www-form-urlencoded",
+  //         "cache-control": "no-cache",
+  //         "Access-Control-Allow-Origin" : "*",
+  //       },
+  //     }
+  //   )
+  //   .then((res) => {
+  //     console.log(res);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+  const res = axios
     .post(
-      "https://api.ninsaude.com/v1/oauth2/token",
+      "http://localhost:3000/auth",
       {
         grant_type: "password",
         account: loginData.conta,
@@ -30,16 +54,17 @@ const setRefreshToken = async (loginData: LoginData) => {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
           "cache-control": "no-cache",
-          "Access-Control-Allow-Origin" : "*",
+          "Access-Control-Allow-Origin": "*",
         },
       }
     )
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
+
+  const retorno = await res;
+
+  if (!retorno) return true;
+  return false;
 };
 
 export default setRefreshToken;

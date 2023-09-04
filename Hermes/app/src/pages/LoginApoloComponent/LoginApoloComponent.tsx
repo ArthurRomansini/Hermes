@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import setRefreshToken from "../../Services/auth";
+import { useState } from "react";
 
 type Inputs = {
   conta: string;
@@ -8,14 +9,15 @@ type Inputs = {
 };
 
 function LoginApoloComponent() {
+  const [status, setStatus] = useState(true);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    setRefreshToken(data);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    setStatus(await setRefreshToken(data));
   };
   return (
     <main className="w-[100vw] h-[100vh] bg-neutral-200 dark:bg-neutral-700 overflow-hidden">
@@ -39,6 +41,14 @@ function LoginApoloComponent() {
                           Hermes - Apolo
                         </h4>
                       </div>
+
+                      {status === false && (
+                        <div className="mb-6 text-center">
+                          <span className="text-red-500">
+                            Usuario ou senha incorretos
+                          </span>
+                        </div>
+                      )}
 
                       <form onSubmit={handleSubmit(onSubmit as any)}>
                         <div className="flex flex-col space-y-2 mb-2">
@@ -105,7 +115,6 @@ function LoginApoloComponent() {
                             </span>
                           )}
                         </div>
-                        
 
                         {/* <!--Submit button--> */}
                         <div className="mb-12 pb-1 pt-1 text-center">
