@@ -2,14 +2,6 @@ var express = require("express");
 var router = express.Router();
 var axios = require("axios");
 
-router.get("/", (req, res, next) => {
-  res.render("index", { title: "Express" });
-  res.status(200).json({
-    message: "Authenticating...",
-  });
-  console.log(req.body);
-});
-
 router.post("/", async (req, res, next) => {
   //   console.log(req.body);
   //   res.render("index", { title: "Express" });

@@ -8,6 +8,7 @@ var cors = require('cors'); // Import cors
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter  = require('./routes/auth'); // Import the auth route
+var agendamentosRouter = require('./routes/agendamentos'); // Import the agendamentos route
 
 var app = express();
 
@@ -29,7 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use ('/auth', cors(corsOptions),authRouter); // Use the auth route
+app.use ('/auth', cors(corsOptions), authRouter); // Use the auth route
+app.use ('/agendamentos', cors(corsOptions), agendamentosRouter); // Use the agendamentos route
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
