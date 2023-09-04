@@ -1,13 +1,20 @@
 import './App.css'
-import LoginComponent from './components/LoginComponent/LoginComponent'
+import AppClinicaRoutes from './routes/appClinica.routes'
+import AppPacienteRoutes from './routes/appPaciente.routes'
+import AuthRoutes from './routes/auth.routes'
 
 function App() {
 
-
+  const auth = false;
+  const authType = 'paciente';
   return (
-    <>
-      <LoginComponent />
-    </>
+    
+    auth ?authType === 'paciente' ?
+    <> <AppPacienteRoutes /> </> :
+     <> <AppClinicaRoutes /> </>:
+     <> <AuthRoutes /> </> 
+     
+
   )
 }
 

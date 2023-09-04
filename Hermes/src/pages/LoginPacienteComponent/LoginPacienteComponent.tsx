@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TERipple } from "tw-elements-react";
 
-function LoginComponent() {
+function LoginPacienteComponent() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,15 +13,15 @@ function LoginComponent() {
     console.log(user, password);
   };
   return (
-    <main className="">
-      <section className="w-[100vw] h-[100vh] bg-neutral-200 dark:bg-neutral-700">
-        <div className="container h-full p-10 w-full m-[auto]">
-          <div className="w-full g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
-            <div className="w-full">
+    <main className="w-[100vw] h-[100vh] bg-neutral-200 dark:bg-neutral-700 overflow-hidden">
+      <section className="w-[90vw] h-[90vh] m-[auto]">
+        <div className="container p-10">
+          <div className=" g-6 flex  flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+            <div className="">
               <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
                 <div className="g-0 lg:flex lg:flex-wrap">
                   {/* <!-- Left column container--> */}
-                  <div className="px-4 md:px-0 lg:w-6/12">
+                  <div className="px-4 max-h-[90vh] md:px-0 lg:w-6/12">
                     <div className="md:mx-6 md:p-12">
                       {/* <!--Logo--> */}
                       <div className="text-center">
@@ -31,7 +31,7 @@ function LoginComponent() {
                           alt="logo"
                         />
                         <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
-                          Hermes
+                          Hermes - Paciente
                         </h4>
                       </div>
 
@@ -110,7 +110,7 @@ function LoginComponent() {
 
                   {/* <!-- Right column container with background and description--> */}
                   <div
-                    className="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-r-lg lg:rounded-bl-none"
+                    className="flex items-center max-h-[90vh] rounded-b-lg lg:w-6/12 lg:rounded-r-lg lg:rounded-bl-none"
                     style={{
                       background:
                         "linear-gradient(150deg, rgba(37,70,25,1) 0%, rgba(61,124,96,1) 60%, rgba(76,184,122,1) 100%)",
@@ -139,4 +139,4 @@ function LoginComponent() {
   );
 }
 
-export default LoginComponent;
+export default LoginPacienteComponent;
