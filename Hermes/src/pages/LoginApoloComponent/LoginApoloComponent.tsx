@@ -30,7 +30,7 @@ function LoginApoloComponent() {
                           src="/img/logo.png"
                           alt="logo"
                         />
-                        <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
+                        <h4 className="mb-6 mt-1 pb-1 text-xl font-semibold">
                           Hermes - Apolo
                         </h4>
                       </div>
@@ -38,15 +38,15 @@ function LoginApoloComponent() {
                       <form onSubmit={handleSubmit}>
                       <div className="flex flex-col space-y-2">
                           <label
-                            htmlFor="default"
+                            htmlFor="conta"
                             className="text-gray-700 select-none font-medium text-left"
                           >
                             Conta
                           </label>
                           <input
-                            id="default"
+                            id="conta"
                             type="text"
-                            name="default"
+                            name="conta"
                             placeholder="Sua conta"
                             className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
                           />
@@ -55,15 +55,15 @@ function LoginApoloComponent() {
                         {/* <!--Username input--> */}
                         <div className="flex flex-col space-y-2 mt-2">
                           <label
-                            htmlFor="default"
+                            htmlFor="usuario"
                             className="text-gray-700 select-none font-medium text-left"
                           >
                             Usuario
                           </label>
                           <input
-                            id="default"
+                            id="usuario"
                             type="text"
-                            name="default"
+                            name="usuario"
                             placeholder="Seu usuario"
                             className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
                           />
@@ -72,15 +72,15 @@ function LoginApoloComponent() {
                         {/* <!--Password input--> */}
                         <div className="flex flex-col space-y-2 mt-2 mb-6">
                           <label
-                            htmlFor="default"
+                            htmlFor="senha"
                             className="text-gray-700 select-none font-medium text-left"
                           >
                             Senha
                           </label>
                           <input
-                            id="default"
+                            id="senha"
                             type="password"
-                            name="default"
+                            name="senha"
                             placeholder="********"
                             className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
                           />
@@ -100,9 +100,6 @@ function LoginApoloComponent() {
                               Log in
                             </button>
                           </TERipple>
-
-                          {/* <!--Forgot password link--> */}
-                          <a href="#!">Forgot password?</a>
                         </div>
                       </form>
                     </div>

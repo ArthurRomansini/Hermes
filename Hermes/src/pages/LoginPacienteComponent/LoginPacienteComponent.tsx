@@ -30,7 +30,7 @@ function LoginPacienteComponent() {
                           src="/img/logo.png"
                           alt="logo"
                         />
-                        <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">
+                        <h4 className="mb-6 mt-1 pb-1 text-xl font-semibold">
                           Hermes - Paciente
                         </h4>
                       </div>
@@ -38,50 +38,33 @@ function LoginPacienteComponent() {
                       <form onSubmit={handleSubmit}>
                       <div className="flex flex-col space-y-2">
                           <label
-                            htmlFor="default"
+                            htmlFor="Cpf"
                             className="text-gray-700 select-none font-medium text-left"
                           >
-                            Conta
+                            Cpf
                           </label>
                           <input
-                            id="default"
+                            id="Cpf"
                             type="text"
-                            name="default"
-                            placeholder="Sua conta"
+                            name="Cpf"
+                            placeholder="Seu cpf"
                             className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
                           />
                         </div>
                         
                         {/* <!--Username input--> */}
-                        <div className="flex flex-col space-y-2 mt-2">
-                          <label
-                            htmlFor="default"
-                            className="text-gray-700 select-none font-medium text-left"
-                          >
-                            Usuario
-                          </label>
-                          <input
-                            id="default"
-                            type="text"
-                            name="default"
-                            placeholder="Seu usuario"
-                            className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
-                          />
-                        </div>
-
-                        {/* <!--Password input--> */}
                         <div className="flex flex-col space-y-2 mt-2 mb-6">
                           <label
-                            htmlFor="default"
+                            htmlFor="codigoClinica"
                             className="text-gray-700 select-none font-medium text-left"
                           >
-                            Senha
+                            Codigo Clinica
                           </label>
                           <input
-                            id="default"
-                            type="password"
-                            name="default"
-                            placeholder="********"
+                            id="codigoClinica"
+                            type="text"
+                            name="codigoClinica"
+                            placeholder="Digite o codigo fornecido pela clinica"
                             className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
                           />
                         </div>
@@ -100,9 +83,6 @@ function LoginPacienteComponent() {
                               Log in
                             </button>
                           </TERipple>
-
-                          {/* <!--Forgot password link--> */}
-                          <a href="#!">Forgot password?</a>
                         </div>
                       </form>
                     </div>
