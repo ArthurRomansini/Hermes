@@ -1,6 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 
-
 type Inputs = {
   cpf: string;
   codigoClinica: string;
@@ -41,7 +40,7 @@ function LoginPacienteComponent() {
                       </div>
 
                       <form onSubmit={handleSubmit(onSubmit)}>
-                      <div className="flex flex-col space-y-2">
+                        <div className="flex flex-col space-y-2">
                           <label
                             htmlFor="cpf"
                             className="text-gray-700 select-none font-medium text-left"
@@ -59,10 +58,9 @@ function LoginPacienteComponent() {
                         {errors.cpf && (
                           <span className="text-red-500 mb-0">
                             O cpf e obrigatório
-                            </span>
-                            )}
-                          
-                        
+                          </span>
+                        )}
+
                         {/* <!--Username input--> */}
                         <div className="flex flex-col space-y-2 mt-2 mb-6">
                           <label
@@ -82,21 +80,21 @@ function LoginPacienteComponent() {
                         {errors.codigoClinica && (
                           <span className="text-red-500 mb-0">
                             O codigo da clinica e obrigatório
-                            </span>
-                            )}
+                          </span>
+                        )}
 
                         {/* <!--Submit button--> */}
                         <div className="mb-12 pb-1 pt-1 text-center">
-                            <button
-                              className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
-                              type="submit"
-                              style={{
-                                background:
-                                  "linear-gradient(270deg, rgba(37,70,25,1) 0%, rgba(71,124,61,1) 77%, rgba(45,182,72,1) 100%)",
-                              }}
-                            >
-                              Log in
-                            </button>
+                          <button
+                            className="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
+                            type="submit"
+                            style={{
+                              background:
+                                "linear-gradient(270deg, rgba(37,70,25,1) 0%, rgba(71,124,61,1) 77%, rgba(45,182,72,1) 100%)",
+                            }}
+                          >
+                            Log in
+                          </button>
                         </div>
                       </form>
                     </div>
@@ -112,14 +110,15 @@ function LoginPacienteComponent() {
                   >
                     <div className="px-4 py-6 text-white md:mx-6 md:p-12">
                       <h4 className="mb-6 text-xl font-semibold">
-                        We are more than just a company
+                        Hermes: Confirmações e Acompanhamento de Agendamentos
+                        Médicos
                       </h4>
                       <p className="text-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex
-                        ea commodo consequat.
+                        O Hermes simplifica seus agendamentos médicos e oferece
+                        confirmações instantâneas. Mantenha o controle das datas
+                        e acompanhe seus compromissos de saúde com facilidade.
+                        Adeus às preocupações com datas e horários. <br /> Com o
+                        Hermes, sua saúde está sempre sob controle.
                       </p>
                     </div>
                   </div>

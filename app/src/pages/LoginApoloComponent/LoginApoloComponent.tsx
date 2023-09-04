@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import setRefreshToken from "../../Services/auth";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Contexts/AuthContext";
 
 type Inputs = {
   conta: string;
@@ -16,13 +17,24 @@ function LoginApoloComponent() {
     formState: { errors },
   } = useForm();
 
+  const authValues = useContext(AuthContext);
+
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    setStatus(await setRefreshToken(data));
+    const refreshToken = await setRefreshToken(data);
+    setStatus(refreshToken !== "false" ? true : false);
+
+    if (refreshToken !== "false") {
+      authValues.setAuthToken(refreshToken);
+      authValues.setLoggedUser(true);
+      authValues.setUserType("clinica");
+    }
+      
+    
   };
   return (
     <main className="w-[100vw] h-[100vh] bg-neutral-200 dark:bg-neutral-700 overflow-hidden">
       <section className="w-[90vw] h-[90vh] m-[auto]">
-        <div className="container p-10">
+        <div className="container p-10 m-[auto]">
           <div className=" g-6 flex  flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
             <div className="">
               <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
@@ -143,14 +155,15 @@ function LoginApoloComponent() {
                   >
                     <div className="px-4 py-6 text-white md:mx-6 md:p-12">
                       <h4 className="mb-6 text-xl font-semibold">
-                        We are more than just a company
+                        Hermes: Confirmações e Acompanhamento de Agendamentos
+                        Médicos
                       </h4>
                       <p className="text-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex
-                        ea commodo consequat.
+                        O Hermes simplifica seus agendamentos médicos e oferece
+                        confirmações instantâneas. Mantenha o controle das datas
+                        e acompanhe seus compromissos de saúde com facilidade.
+                        Adeus às preocupações com datas e horários. <br /> Com o
+                        Hermes, sua saúde está sempre sob controle.
                       </p>
                     </div>
                   </div>
